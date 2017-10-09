@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Health App</title>
+
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+    <link href="https://getbootstrap.com/docs/3.3/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <img src="img/ua_logo.png" alt="University of Aveiro" width="400" height="90">
+      </div>
+      <div class="jumbotron">
+        <img src="img/health.png" alt="University of Aveiro" width="150" height="150">
+        <h4>Registar uma nova Conta</h4>
+        <form class="form-signin" action="/signup">
+        <input type="text" class="form-control" id="username" placeholder="Utilizador" required="" autofocus="" />
+        <input type="password" class="form-control" id="password" placeholder="Password" required=""/>
+        <input type="password" class="form-control" id="password2" placeholder="Confirmar Password" required=""/>
+        <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="button" onclick="registerNewAccount();">Registar</button>
+      </form>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; @2017</p>
+      </footer>
+      <script src="js/jquery-3.2.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+      <script src="js/account_management.js"></script>
+      <script src="js/cookies.js"></script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Bootstrap 101 Template</title>
+
+      <link rel="stylesheet" type="text/css" href="css/jquery.gridster.min.css">
+      <link rel="stylesheet" type="text/css" href="css/gridster-styles.css">
+      <link href="css/toastr.css" rel="stylesheet"/>
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="css/omh-web-visualizations-all.css">
+      <link rel="stylesheet" type="text/css" href="css/plottable.css">
+
+
+      <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/jquery.gridster.js" charster="utf-8"></script>
+      <script src="js/d3.v3.min.js" charset="utf-8"></script>
+      <script type="text/javascript" src="js/omh-web-visualizations-all.js" ></script>
+      <script type="text/javascript" src="js/plottable.min.js" ></script>
+      <script type="text/javascript" src="js/d3-tip.min.js" ></script>
+      <script type="text/javascript" src="js/moment.min.js" ></script>
+
+
+
+      <script type="text/javascript" src="js/omh-test.js" ></script>
+
+
+
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="js/cookies.js"></script>
+      <script src="js/account_management.js"></script>
+      <script src="js/utentes_management.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script> canOpen();  </script>
+      <script> fillTopMenu();  </script>
+      <script> getPatientDemographics();  </script>
+      <script src="js/toastr.js"></script>
+
+      <!-- Include Date Range Picker -->
+      <script type="text/javascript" src="js/bootstrap-datepicker.min.js"></script>
+      <link rel="stylesheet" href="css/bootstrap-datepicker3.css"/>
+
+
+
+
+      <script src="js/highcharts.js"></script>
+      <script src="js/exporting.js"></script>
+
+      <script>
+        $(document).ready(function(){
+          console.log('doc ready');
+            var date_input=$('input[name="date"]'); //our date input has the name "date"
+            var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+            date_input.datepicker({
+                format: 'mm/dd/yyyy',
+                container: container,
+                todayHighlight: true,
+                autoclose: true,
+            })
+        })
+        </script>
+  </head>
+  <body>
+    <div class="container" style="margin-top:20px;">
+      <nav class="navbar navbar-default ">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" onclick="checkLog();">Os Meus Utentes</a>
+          </div>
+          <div id="loggedOrNot" class="navbar-collapse collapse" >
+
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+      <br>
+
+      <div class="col-sm-3" style="padding-left:0px;">
+        <div class="form-horizontal">
+          <div class="well sidebar-nav">
+                  <ul class="nav nav-list">
+                    <li class="nav-header">Utentes</li>
+                    <li><a href="adduser.html">Adicionar</a></li>
+                    <li><a href="users.html">Listar</a></li>
+                  </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <form class="form-horizontal" id="form_members" role="form">
+        <legend>Detalhes do Utente</legend>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="row form-group">
+                <label for="firstname" class="col-sm-4">Identificação do Utente</label></label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" name="companyname" id="user_id" readonly="readonly">
+                </div>
+              </div>
+              <div class="row form-group">
+                <label for="firstname" class="col-sm-4">Nome Principal</label></label>
+                <div class="col-sm-8">
+                	<input type="text" class="form-control" name="companyname" id="givenname" placeholder="Nome Principal do Utente">
+                </div>
+              </div>
+              <div class="row form-group">
+                <label for="lastname" class="col-sm-4">Nome Familiar</label>
+                <div class="col-sm-8">
+                	<input type="text" class="form-control" name="Industry" id="familyname" placeholder="Nome Familiar do Utente">
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="region" class="col-sm-4">Género</label>
+                <div class="col-sm-8">
+                    <select class="form-control" name="region" id="gender">
+                        <option>Masculino</option>
+                        <option>Feminino</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="region" class="col-sm-4">Data de Nascimento</label>
+                <div class="col-sm-8">
+                    <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+                </div>
+            </div>
+
+
+            </div>
+            <div class="col-sm-6" style="text-align:center">
+              <img alt="photo" id="photo" style="height:220px;" src="img/unknown-user.png" />
+            </div>
+          </div>
+
+        <legend>Endereço</legend>
+        <div class="form-group">
+          <label for="region" class="col-sm-2">Distrito</label>
+          <div class="col-sm-4">
+              <input type="text" class="form-control" name="zipcode" id="district" placeholder="Distrito">
+          </div>
+          <label for="region" class="col-sm-2">Cidade</label>
+          <div class="col-sm-4">
+              <input type="text" class="form-control" name="zipcode" id="city" placeholder="Cidade">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="address" class="col-sm-2">Address</label>
+          <div class="col-sm-4">
+              <input type="text" class="form-control" name="address" id="streetaddress" placeholder="Rua + No">
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="zipcode" class="col-sm-2">Codigo Postal</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" name="zipcode" id="zipcode" placeholder="ZIP Code">
+            </div>
+        </div>
+        <legend>Contactos</legend>
+        <div class="form-group">
+            <label for="phone" class="col-sm-2">Telefónico</label>
+            <div class="col-sm-4">
+                <input type="tel" class="form-control" name="phone" id="phone" placeholder="Telefone">
+            </div>
+            <label for="email" class="col-sm-2">Email</label>
+            <div class="col-sm-4">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+            </div>
+        </div>
+
+        <div class="col-sm-offset-10">
+            <button type="button" class="btn btn-warning" name="submit" onclick="addUser()"; id="submit">Atualizar Dados Pessoais</button>
+        </div>
+      </form>
+    </div>
+    <br>
+    <hr>
+
+
+
+
+      <!-- <div class="page"> -->
+          <h1>Leituras do Paciente</h1>
+          <br>
+
+      <div class="row form-group">
+          <label for="region" class="col-sm-2">Data Inicial</label>
+          <div class="col-sm-4">
+              <input class="form-control" id="date_init" name="date" placeholder="MM/DD/YYY" type="text"/>
+          </div>
+          <label for="region" class="col-sm-2">Data Final</label>
+          <div class="col-sm-4">
+              <input class="form-control" id="date_final" name="date" placeholder="MM/DD/YYY" type="text"/>
+          </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-sm-offset-10">
+            <button type="button" class="btn btn-warning" name="submit" onclick="getAllData();"; id="submit">Procurar neste intervalo</button>
+        </div>
+      </div>
+      <br/>
+      <div id="leituras-div" style="display:none">
+        <h2>Sessões De Leitura</h2>
+        <div class="row form-group">
+            <label for="ecg-data" class="col-sm-2">Leituras Disponíveis</label>
+            <div class="col-sm-4">
+                <select class="form-control" name="ecg-data" id="ecg-select" onchange="changeData();">
+                </select>
+            </div>
+        </div>
+      </div>
+      <hr>
+      <div id="hr-div" style="display:none">
+        <h3>Dados BPM</h3>
+        <div class="demo-chart-container">
+          <svg class="demo-chart">
+          </svg>
+        </div>
+      </div>
+      <div id="ecg-div" style="display:none">
+        <form class="form-horizontal" id="form_members" role="form">
+          <h3>Dados ECG</h3>
+          <div id="container-ecg" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+        </form>
+      </div>
+      <div id="acc-div" style="display:none">
+        <form class="form-horizontal" id="form_members" role="form">
+          <h3>Dados Acelerómetro</h3>
+          <div id="container-acc" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+        </form>
+      </div>
+       <!-- <script> useOMH();  </script> -->
+
+
+    </div>
+  </body>
+</html>

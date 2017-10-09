@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/cookies.js"></script>
+    <script src="js/account_management.js"></script>
+
+    <title>Bootstrap 101 Template</title>
+    <link href="css/toastr.css" rel="stylesheet"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-1.10.2.js"></script>
+    <script> fillTopMenu();  </script>
+    <script src="js/toastr.js"></script>
+
+
+  </head>
+  <body>
+    <div class="container" style="margin-top:20px;">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default ">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" onclick="checkLog();">Os Meus Utentes</a>
+          </div>
+          <div id="loggedOrNot" class="navbar-collapse collapse" >
+
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+
+      <div class="jumbotron">
+        <img src="img/health.png" width="250" height="250" style="float:left; margin-right:20px;"/>
+        <div class="hero-unit">
+            <h1>Bem Vindo!</h1>
+            <p/>
+            <p>Venha conhecer o nosso sistema.</p>
+        </div>
+        <p>
+          <a class="btn btn-lg btn-primary" onclick="checkLog();" role="button">Visualizar Utentes &raquo;</a>
+        </p>
+
+        <hr/>
+
+        <footer>
+            <p>&copy; 2017</p>
+        </footer>
+      </div>
+
+    </div> <!-- /container -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
+</html>
