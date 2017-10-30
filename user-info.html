@@ -66,7 +66,7 @@
       <nav class="navbar navbar-default ">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" onclick="checkLog();">Os Meus Utentes</a>
+            <a class="navbar-brand" onclick="checkLog();">Os Meus Participantes</a>
           </div>
           <div id="loggedOrNot" class="navbar-collapse collapse" >
 
@@ -79,7 +79,7 @@
         <div class="form-horizontal">
           <div class="well sidebar-nav">
                   <ul class="nav nav-list">
-                    <li class="nav-header">Utentes</li>
+                    <li class="nav-header">Participantes</li>
                     <li><a href="adduser.html">Adicionar</a></li>
                     <li><a href="users.html">Listar</a></li>
                   </ul>
@@ -88,11 +88,11 @@
       </div>
       <div class="col-sm-9">
         <form class="form-horizontal" id="form_members" role="form">
-        <legend>Detalhes do Utente</legend>
+        <legend>Detalhes do Participante</legend>
           <div class="row">
             <div class="col-sm-6">
               <div class="row form-group">
-                <label for="firstname" class="col-sm-4">Identificação do Utente</label></label>
+                <label for="firstname" class="col-sm-4">Identificação do Participante</label></label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control" name="companyname" id="user_id" readonly="readonly">
                 </div>
@@ -100,13 +100,13 @@
               <div class="row form-group">
                 <label for="firstname" class="col-sm-4">Nome Principal</label></label>
                 <div class="col-sm-8">
-                	<input type="text" class="form-control" name="companyname" id="givenname" placeholder="Nome Principal do Utente">
+                	<input type="text" class="form-control" name="companyname" id="givenname" placeholder="Nome Principal do Participante">
                 </div>
               </div>
               <div class="row form-group">
                 <label for="lastname" class="col-sm-4">Nome Familiar</label>
                 <div class="col-sm-8">
-                	<input type="text" class="form-control" name="Industry" id="familyname" placeholder="Nome Familiar do Utente">
+                	<input type="text" class="form-control" name="Industry" id="familyname" placeholder="Nome Familiar do Participante">
                 </div>
             </div>
             <div class="row form-group">
@@ -167,10 +167,12 @@
             </div>
         </div>
 
-        <div class="col-sm-offset-10">
-            <button type="button" class="btn btn-warning" name="submit" onclick="addUser()"; id="submit">Atualizar Dados Pessoais</button>
-        </div>
       </form>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-10">
+          <button type="button" class="btn btn-warning" name="submit" onclick="addUser()"; id="submit">Atualizar Dados Pessoais</button>
+      </div>
     </div>
     <br>
     <hr>
@@ -179,7 +181,7 @@
 
 
       <!-- <div class="page"> -->
-          <h1>Leituras do Paciente</h1>
+          <h1>Leituras do Participante</h1>
           <br>
 
       <div class="row form-group">
