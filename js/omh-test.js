@@ -567,11 +567,32 @@ function getAllData() {
 function changeData() {
   var index_array = $( "#ecg-select" ).val();
   console.log('obj', ecg_objs_tofill[index_array]);
+  var old_date = new Date();
   if (ecg_objs_tofill.hasOwnProperty(index_array)) {
-      document.getElementById('ecg-div').style.display = "block";
+    console.log('datatime->', ecg_objs_tofill[index_array].date_time);
+    var new_data = new Date(ecg_objs_tofill[index_array].date_time);
+    if (old_date > new_data) {
+      old_date = new_data;
+
+      var date_time_info = '' + new_data.getDate() + '/' + (new_data.getMonth()+1) + '/' + new_data.getFullYear();
+      var hour_info = '' + new_data.getHours() + ':' + new_data.getMinutes() + ':' + new_data.getSeconds();
+
+      document.getElementById('lbl-info-session-date-data').innerHTML=date_time_info;
+      document.getElementById('lbl-info-session-hour-data').innerHTML=hour_info;
+      document.getElementById('lbl-info-session-date-data').style.display = "block";
+      document.getElementById('lbl-info-session-date').style.display = "block";
+      document.getElementById('lbl-info-session-hour-data').style.display = "block";
+      document.getElementById('lbl-info-session-hour').style.display = "block";
+    }
+
+
+
+
+
+    document.getElementById('ecg-div').style.display = "block";
     var episode_data = ecg_objs_tofill[index_array].values;
     var date_init = new Date(ecg_objs_tofill[index_array].date_time)
-
+    console.log('date_initECG->', date_init, 'data->', episode_data);
     Highcharts.chart('container-ecg', {
         chart: {
             type: 'spline',
@@ -609,7 +630,7 @@ function changeData() {
                     enabled: false
                 },
                 pointInterval: 2,
-                pointStart: Date.UTC(1900+date_init.getYear(), date_init.getMonth(), date_init.getDay()+1, date_init.getHours(), date_init.getMinutes(), date_init.getSeconds())
+                pointStart: Date.UTC(date_init.getFullYear(), date_init.getMonth(), date_init.getDate(), date_init.getHours(), date_init.getMinutes(), date_init.getSeconds())
             }
         },
         series: [{
@@ -632,6 +653,23 @@ function changeData() {
   if (hr_objs_tofill.hasOwnProperty(index_array)) {
     document.getElementById('hr-div').style.display = "block";
     hearRateDataJSON = hr_objs_tofill[index_array].values;
+
+    var new_data = new Date(hr_objs_tofill[index_array].date_time);
+    if (old_date > new_data) {
+      old_date = new_data;
+
+      var date_time_info = '' + new_data.getDate() + '/' + (new_data.getMonth()+1) + '/' + new_data.getFullYear();
+      var hour_info = '' + new_data.getHours() + ':' + new_data.getMinutes() + ':' + new_data.getSeconds();
+
+      document.getElementById('lbl-info-session-date-data').innerHTML=date_time_info;
+      document.getElementById('lbl-info-session-hour-data').innerHTML=hour_info;
+      document.getElementById('lbl-info-session-date-data').style.display = "block";
+      document.getElementById('lbl-info-session-date').style.display = "block";
+      document.getElementById('lbl-info-session-hour-data').style.display = "block";
+      document.getElementById('lbl-info-session-hour').style.display = "block";
+    }
+
+
     parseInputAndMakeChart();
   } else {
     document.getElementById('hr-div').style.display = "none";
@@ -644,6 +682,23 @@ function changeData() {
     var acc_dataz = [];
     var acc_data = [];
     console.log(acc_objs_tofill[index_array]);
+
+    var new_data = new Date(acc_objs_tofill[index_array].date_time);
+    if (old_date > new_data) {
+      old_date = new_data;
+
+      var date_time_info = '' + new_data.getDate() + '/' + (new_data.getMonth()+1) + '/' + new_data.getFullYear();
+      var hour_info = '' + new_data.getHours() + ':' + new_data.getMinutes() + ':' + new_data.getSeconds();
+
+      document.getElementById('lbl-info-session-date-data').innerHTML=date_time_info;
+      document.getElementById('lbl-info-session-hour-data').innerHTML=hour_info;
+      document.getElementById('lbl-info-session-date-data').style.display = "block";
+      document.getElementById('lbl-info-session-date').style.display = "block";
+      document.getElementById('lbl-info-session-hour-data').style.display = "block";
+      document.getElementById('lbl-info-session-hour').style.display = "block";
+    }
+
+
     var start_time;
     acc_objs_tofill[index_array].values.forEach(function(data) {
       console.log(data);
@@ -704,7 +759,7 @@ function changeData() {
                     enabled: false
                 },
                 pointInterval: 1000, // one seccond
-                pointStart: Date.UTC(1900+start_date.getYear(), start_date.getMonth(), start_date.getDay()+1, start_date.getHours(), start_date.getMinutes(), start_date.getSeconds())
+                pointStart: Date.UTC(start_date.getFullYear(), start_date.getMonth(), start_date.getDate(), start_date.getHours(), start_date.getMinutes(), start_date.getSeconds())
             }
         },
         series: [{
